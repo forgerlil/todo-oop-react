@@ -1,13 +1,21 @@
 header
 
 
-h1
+h1 {
 
-.input-wraper 
+}
 
-.filters 
+.input-wraper {
 
-.to-do-wraper
+}
+
+.filters {
+
+}
+
+.to-do-wraper {
+    
+}
 
 @media screen and (max-width: 992px) {}
 
