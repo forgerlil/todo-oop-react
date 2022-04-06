@@ -1,21 +1,121 @@
-header
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+}
 
+body {
+    background-color: #e9f3e9;
+}
+
+nav {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    background-color: #525E75;
+}
 
 h1 {
-
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
 }
 
-.input-wraper {
-
+nav form {
+    margin-right: 2.5rem;
 }
 
-.filters {
-
+.todo-search-btn:hover {
+    color: #525E75;
 }
 
-.to-do-wraper {
-    
+main {
+    margin: 1rem;
 }
+
+.to-do-input-section {
+    background-color: #9aafa8;
+}
+
+.todo-input-wrapper {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.todo-search-input {
+    margin-right: .5em;
+}
+
+.filter-wrapper {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    width: 20%;
+    border-radius: 10px;
+    height: 60px;
+    font-size: 1.5rem;
+}
+
+.filter-btn:hover {
+    background-color: #525E75;
+}
+
+.to-do-card {
+    box-shadow: 10px 5px 5px rgba(0,0,0,.2);
+}
+
+.card1,
+.card3,
+.card6 {
+    background-color: chartreuse;
+}
+
+.card-body {
+    min-height: 10em;
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.card-body input {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+}
+
+.card-body label {
+    display: inline;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 0;
+    background-color: #78938A;
+}
+
+footer img {
+    height: 30px;
+    width: 30px;
+}
+
+.collabs {
+    display: flex;
+}
+
+.collabs img {
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
 
 @media screen and (max-width: 992px) {}
 
