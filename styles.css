@@ -16,6 +16,13 @@ nav {
     background-color: #525E75;
 }
 
+input,
+input:focus,
+input:active {
+    outline: none;
+    border: 2px solid transparent;
+}
+
 h1 {
     width: 70%;
     margin: 0 auto;
@@ -27,6 +34,10 @@ nav form {
     margin-right: 2.5rem;
 }
 
+.todo-search-input {
+    margin-right: .5em;
+}
+
 .todo-search-btn:hover {
     color: #525E75;
 }
@@ -34,6 +45,7 @@ nav form {
 main {
     margin: 1rem;
 }
+
 
 .to-do-input-section {
     background-color: #9aafa8;
@@ -45,8 +57,20 @@ main {
     padding: 20px 0;
 }
 
-.todo-search-input {
-    margin-right: .5em;
+.to-do-input,
+.to-do-input:focus,
+.to-do-input:active {
+    border: 2px solid transparent;
+    outline: none;
+}
+
+.add-todo-btn {
+    border: 2px solid transparent;
+}
+
+.error-msg {
+    width: 90%;
+    margin: 0 auto;
 }
 
 .filter-wrapper {
@@ -62,19 +86,22 @@ main {
     height: 60px;
     font-size: 1.5rem;
 }
-
-.filter-btn:hover {
-    background-color: #525E75;
+/*
+.active {
+    background-color: #198754;
 }
+
+.active:hover {
+    background-color: #0c5533;
+    box-shadow: 3px 3px 3px rgba(0,0,0,.7);
+}
+
+/*.filter-btn:hover {
+    background-color: #525E75;
+}*/
 
 .to-do-card {
     box-shadow: 10px 5px 5px rgba(0,0,0,.2);
-}
-
-.card1,
-.card3,
-.card6 {
-    background-color: chartreuse;
 }
 
 .card-body {
