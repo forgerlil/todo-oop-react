@@ -1,7 +1,33 @@
+const toDoSearchBtn = document.querySelector('.todo-search-btn');
 const toDoInput = document.querySelector('.to-do-input');
 const addToDoBtn = document.querySelector('.add-todo-btn');
 const checkbox = document.querySelectorAll('.to-do-checkbox');
+const responsiveFilterBar = document.querySelector('.filter-wrapper');
 let idIncrementalCounter = 6;
+
+// Search button and filter bar resposiveness
+window.onresize = window.onload = responsive;
+
+function responsive () {
+  const windowWidth = window.innerWidth;
+  toDoInput.value = windowWidth;
+  if (windowWidth <= 768) {
+    responsiveFilterBar.classList.add('btn-group');
+    responsiveFilterBar.style.width = '100%';
+
+    toDoSearchBtn.textContent = '';
+    const searchIcon = document.createElement('img');
+    searchIcon.src = './pictures/search.png';
+    searchIcon.alt = 'Search';
+    toDoSearchBtn.appendChild(searchIcon);
+  } else {
+    responsiveFilterBar.classList.remove('btn-group');
+    if (toDoSearchBtn.children[0]) {
+      toDoSearchBtn.children[0].remove();
+      toDoSearchBtn.textContent = 'Search';
+    }
+  }
+}
 
 // Checkbox checked reset upon page load
 checkbox.forEach(checkbox => {
@@ -133,29 +159,30 @@ rootMessages.onclick = function (e) {
 }
 */
 
-
-// WORK IN PROGRESS, 06.04.2022
-// !!!Ask how to reach the btn-success class
-
-const filterActive = document.querySelector('.active');
+// Toggling Bootstrap 'active' class on clicked item and untoggling on all other siblings
+const filterActive = document.querySelector('.current');
 const filterComplete = document.querySelector('.complete');
 const filterAll = document.querySelector('.all-todos');
 
-function activateActive () {
-  //filterActive.style.backgroundColor = '#198754';
-  //filterActive.style.color = '#FFF';
-  console.log(filterActive.getAttribute('class'))
-  if (filterActive.getAttribute('class', 'btn filter-btn active btn-success') === false) {
-    filterActive.addAttribute('class', 'btn-success');
+function activateFilterBtn (e) {
+  // This returns an object (HTMLcollection) with keys as indexes, and an HTML element as a value
+  let children = e.target.parentNode.children;
+
+  // Object.values(nameOfObject) iterates through all values of each key in an object, 
+  // and returns, in this case, an HTML element
+  Object.values(children).forEach(child => {
+    // .classList returns an array called a DOMTokenList. .includes() normally works to search an array since ES6
+    // but does not work with DOMTokenList. To check whether a DOMTokenList array contains a specific value,
+    // .contains() must be used instead.
+    if (child.classList.contains('active')) {
+      child.classList.remove('active')
+    }
+  })
+  
+  let setActive = e.target.classList;
+  if (!(setActive.contains('active'))) {
+    setActive.add('active');
   }
 };
 
-function activateComplete () {};
-
-function activateAll () {};
-
-filterActive.onclick = activateActive;
-filterComplete.onclick = activateComplete;
-filterAll.onclick = activateAll;
-
-//HTML/MDN classlist (object/element)
+filterActive.onclick = filterComplete.onclick = filterAll.onclick = activateFilterBtn;
