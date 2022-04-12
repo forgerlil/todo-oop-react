@@ -7,6 +7,7 @@
 
 body {
     background-color: #e9f3e9;
+    min-height: 100%;
 }
 
 nav {
@@ -14,6 +15,8 @@ nav {
     display: flex;
     align-items: center;
     background-color: #525E75;
+    /*position: relative;*/
+    justify-content: flex-end;    
 }
 
 input,
@@ -24,10 +27,12 @@ input:active {
 }
 
 h1 {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
     font-family: 'Roboto Slab', serif;
+    font-size: 3.5rem;
+    /*position: absolute;*/
 }
 
 nav form {
@@ -40,10 +45,12 @@ nav form {
 
 .todo-search-btn:hover {
     color: #525E75;
+    background-color: #FFF;
 }
 
 main {
     margin: 1rem;
+    min-height: 30vw;
 }
 
 
@@ -60,8 +67,9 @@ main {
 .to-do-input,
 .to-do-input:focus,
 .to-do-input:active {
-    border: 2px solid transparent;
-    outline: none;
+    border: 2px solid transparent !important;
+    outline: none !important;
+    box-shadow: 0 !important;
 }
 
 .add-todo-btn {
@@ -146,8 +154,92 @@ footer img {
 
 @media screen and (max-width: 992px) {}
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
 
-@media screen and (max-width: 576px) {}
+    .todo-search-btn img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .filter-btn {
+        font-size: 1.2rem;
+    }
+
+    nav form {
+        margin: 1rem;
+    }
+
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    .todo-search-input {
+        margin: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .todo-search-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+
+    header {
+        height: fit-content;
+    }
+
+    nav {
+        display: block;
+        height: 100%;
+        flex-direction: column-reverse;
+        padding: .5em 0 1em;
+        justify-content: space-between;
+        position: static;
+    }
+
+    nav form {
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 2.7rem;
+        padding: .5em 0 0;
+        position: static;
+    }
+
+    .todo-search-input {
+        margin: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .todo-search-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+    }
+
+    .current,
+    .complete,
+    .all-todos {
+        border-radius: 0;
+    }
+
+    .current {
+        border-left: none;
+    }
+
+    .all-todos {
+        border-right: none;
+    }
+
+    .card-body {
+        min-height: 7em;
+    }
+}
 
 @media screen and (max-width: 400px) {}
